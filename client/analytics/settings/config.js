@@ -15,6 +15,7 @@ import { Link } from '@woocommerce/components';
  * Internal dependencies
  */
 import { DEFAULT_ACTIONABLE_STATUSES } from 'wc-api/constants';
+import DefaultDate from './default-date';
 
 const SETTINGS_FILTER = 'woocommerce_admin_analytics_settings';
 
@@ -92,5 +93,17 @@ export const analyticsSettings = applyFilters( SETTINGS_FILTER, [
 		),
 		initialValue: wcSettings.wcAdminSettings.woocommerce_actionable_order_statuses || [],
 		defaultValue: DEFAULT_ACTIONABLE_STATUSES,
+	},
+	{
+		name: 'woocommerce_default_date_range',
+		label: __( 'Default Date Range', 'woocommerce-admin' ),
+		inputType: 'component',
+		component: DefaultDate,
+		helpText: __(
+			'When no date range is selected, this will be your date range',
+			'woocommerce-admin'
+		),
+		initialValue: '?period=month&compare=previous_year',
+		defaultValue: '?period=month&compare=previous_year',
 	},
 ] );
