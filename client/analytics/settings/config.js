@@ -103,7 +103,7 @@ export const analyticsSettings = applyFilters( SETTINGS_FILTER, [
 			'When no date range is selected, this will be your date range',
 			'woocommerce-admin'
 		),
-		initialValue: '?period=month&compare=previous_year',
-		defaultValue: '?period=month&compare=previous_year',
+		initialValue: 'period=month&compare=previous_year',
+		defaultValue: 'period=month&compare=previous_year',
 	},
 ] );

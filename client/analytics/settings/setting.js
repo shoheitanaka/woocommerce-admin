@@ -56,9 +56,7 @@ class Setting extends Component {
 				);
 			case 'component':
 				const SettingComponent = component;
-				return (
-					<SettingComponent handleInputCallback={ this.handleInputCallback } { ...this.props } />
-				);
+				return <SettingComponent value={ value } onChange={ handleChange } { ...this.props } />;
 			case 'text':
 			default:
 				return (

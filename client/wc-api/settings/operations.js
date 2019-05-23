@@ -39,6 +39,7 @@ function updateSettings( resourceNames, data, fetch ) {
 	const settingsFields = [
 		'woocommerce_excluded_report_order_statuses',
 		'woocommerce_actionable_order_statuses',
+		'woocommerce_default_date_range',
 	];
 
 	if ( resourceNames.includes( resourceName ) ) {
