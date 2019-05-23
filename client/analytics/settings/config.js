@@ -101,7 +101,8 @@ export const analyticsSettings = applyFilters( SETTINGS_FILTER, [
 		inputType: 'component',
 		component: DefaultDate,
 		helpText: __(
-			'When no date range is selected, this will be your date range',
+			'Select a default date range. When no range is selected, reports will be viewed by' +
+				'the default date range.',
 			'woocommerce-admin'
 		),
 		initialValue: wcSettings.wcAdminSettings.woocommerce_default_date_range || DEFAUTL_DATE_RANGE,
