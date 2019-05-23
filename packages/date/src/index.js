@@ -7,12 +7,6 @@ import { find } from 'lodash';
 import { __ } from '@wordpress/i18n';
 import { parse } from 'qs';
 
-// const QUERY_DEFAULTS = {
-// 	pageSize: 25,
-// 	period: 'month',
-// 	compare: 'previous_year',
-// };
-
 export const isoDateFormat = 'YYYY-MM-DD';
 
 /**

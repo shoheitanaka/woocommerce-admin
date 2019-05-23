@@ -34,7 +34,7 @@ class Settings extends Component {
 		analyticsSettings.forEach( setting => ( settings[ setting.name ] = setting.initialValue ) );
 
 		this.state = {
-			settings: settings,
+			settings,
 			saving: false,
 		};
 
