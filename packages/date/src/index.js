@@ -5,12 +5,13 @@
 import moment from 'moment';
 import { find } from 'lodash';
 import { __ } from '@wordpress/i18n';
+import { parse } from 'qs';
 
-const QUERY_DEFAULTS = {
-	pageSize: 25,
-	period: 'month',
-	compare: 'previous_year',
-};
+// const QUERY_DEFAULTS = {
+// 	pageSize: 25,
+// 	period: 'month',
+// 	compare: 'previous_year',
+// };
 
 export const isoDateFormat = 'YYYY-MM-DD';
 
@@ -268,11 +269,22 @@ function getDateValue( period, compare, after, before ) {
  * @return {DateParams} - date parameters derived from query parameters with added defaults
  */
 export const getDateParamsFromQuery = ( { period, compare, after, before } ) => {
+	const queryDefaults = parse( wcSettings.wcAdminSettings.woocommerce_default_date_range.replace( /&amp;/g, '&' ) );
+
+	if ( period && compare ) {
+		return {
+			period,
+			compare,
+			after: after ? moment( after ) : null,
+			before: before ? moment( before ) : null,
+		};
+	}
+
 	return {
-		period: period || QUERY_DEFAULTS.period,
-		compare: compare || QUERY_DEFAULTS.compare,
-		after: after ? moment( after ) : null,
-		before: before ? moment( before ) : null,
+		period: queryDefaults.period,
+		compare: queryDefaults.compare,
+		after: queryDefaults.after ? moment( queryDefaults.after ) : null,
+		before: queryDefaults.before ? moment( queryDefaults.before ) : null,
 	};
 };
 
