@@ -97,7 +97,7 @@ export const analyticsSettings = applyFilters( SETTINGS_FILTER, [
 	},
 	{
 		name: 'woocommerce_default_date_range',
-		label: __( 'Default Date Range', 'woocommerce-admin' ),
+		label: __( 'Default Date Range:', 'woocommerce-admin' ),
 		inputType: 'component',
 		component: DefaultDate,
 		helpText: __(
