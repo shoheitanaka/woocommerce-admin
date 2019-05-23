@@ -68,7 +68,9 @@ export const appendTimestamp = ( date, timeOfDay ) => {
 	if ( timeOfDay === 'end' ) {
 		return date + 'T23:59:59';
 	}
-	throw new Error( 'appendTimestamp requires second parameter to be either `start`, `now` or `end`' );
+	throw new Error(
+		'appendTimestamp requires second parameter to be either `start`, `now` or `end`'
+	);
 };
 
 /**
@@ -263,7 +265,11 @@ function getDateValue( period, compare, after, before ) {
  * @return {DateParams} - date parameters derived from query parameters with added defaults
  */
 export const getDateParamsFromQuery = ( { period, compare, after, before } ) => {
-	const queryDefaults = parse( wcSettings.wcAdminSettings.woocommerce_default_date_range.replace( /&amp;/g, '&' ) );
+	const defaultDateRange =
+		wcSettings.wcAdminSettings.woocommerce_default_date_range ||
+		'period=month&compare=previous_year';
+
+	const queryDefaults = parse( defaultDateRange.replace( /&amp;/g, '&' ) );
 
 	if ( period && compare ) {
 		return {

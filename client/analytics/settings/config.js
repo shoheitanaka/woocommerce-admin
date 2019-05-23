@@ -104,7 +104,7 @@ export const analyticsSettings = applyFilters( SETTINGS_FILTER, [
 			'When no date range is selected, this will be your date range',
 			'woocommerce-admin'
 		),
-		initialValue: wcSettings.wcAdminSettings.woocommerce_default_date_range,
+		initialValue: wcSettings.wcAdminSettings.woocommerce_default_date_range || DEFAUTL_DATE_RANGE,
 		defaultValue: DEFAUTL_DATE_RANGE,
 	},
 ] );
