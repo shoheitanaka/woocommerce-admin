@@ -32,6 +32,10 @@
 		color: $core-grey-dark-500;
 	}
 
+	.woocommerce-filters-filter label {
+		margin-bottom: 0;
+	}
+
 	input[type='checkbox'] {
 		margin-right: $gap-small;
 	}

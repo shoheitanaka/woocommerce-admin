@@ -87,7 +87,23 @@ class Settings extends Component {
 		}
 	}
 
+	/**
+	 * Ensure changes are reflected to parameters on the window as well as
+	 * the config for construction of this component when re-navigating to
+	 * the settings page.
+	 *
+	 * @param {object} state - State
+	 */
+	persistChanges( state ) {
+		analyticsSettings.forEach( setting => {
+			const updatedValue = state.settings[ setting.name ];
+			wcSettings.wcAdminSettings[ setting.name ] = updatedValue;
+			setting.initialValue = updatedValue;
+		} );
+	}
+
 	saveChanges = () => {
+		this.persistChanges( this.state );
 		this.props.updateSettings( this.state.settings );
 		this.setState( { saving: true } );
 	};
