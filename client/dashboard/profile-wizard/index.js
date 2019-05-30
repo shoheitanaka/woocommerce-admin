@@ -24,6 +24,7 @@ import Start from './steps/start';
 import Industry from './steps/industry';
 import StoreDetails from './steps/store-details';
 import ProductTypes from './steps/product-types';
+import BusinessDetails from './steps/business-details';
 import './style.scss';
 
 const getSteps = () => {
@@ -53,7 +54,7 @@ const getSteps = () => {
 	} );
 	steps.push( {
 		key: 'business-details',
-		container: Fragment,
+		container: BusinessDetails,
 		label: __( 'Business Details', 'woocommerce-admin' ),
 	} );
 	steps.push( {
